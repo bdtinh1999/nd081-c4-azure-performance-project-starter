@@ -62,10 +62,6 @@ button1 = os.environ.get('VOTE1VALUE', app.config['VOTE1VALUE'])
 button2 = os.environ.get('VOTE2VALUE', app.config['VOTE2VALUE'])
 title = os.environ.get('TITLE', app.config['TITLE'])
 
-# Redis Connection to a remote Redis server
-REDIS = os.getenv('REDIS', 'localhost')  
-REDIS_PWD = os.getenv('REDIS_PWD', '')  
-
 # Redis Connection
 r = redis.Redis()
 
