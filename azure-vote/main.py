@@ -66,17 +66,8 @@ title = os.environ.get('TITLE', app.config['TITLE'])
 REDIS = os.getenv('REDIS', 'localhost')  
 REDIS_PWD = os.getenv('REDIS_PWD', '')  
 
-# Redis Connection to another container
-try:
-    if "REDIS_PWD" in os.environ:
-        r = redis.StrictRedis(host=REDIS,
-                              port=6379,
-                              password=REDIS_PWD)
-    else:
-        r = redis.Redis(REDIS)
-    r.ping()  # Test the connection to Redis
-except redis.ConnectionError:
-    exit('Failed to connect to Redis, terminating.')
+# Redis Connection
+r = redis.Redis()
 
 # Change title to hostname if configured to show host
 if app.config.get('SHOWHOST') == "true":
