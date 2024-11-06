@@ -20,7 +20,7 @@ from opencensus.ext.flask.flask_middleware import FlaskMiddleware
 app = Flask(__name__)
 
 # Application Insights configuration
-instru_key_insights = 'InstrumentationKey=ef6e7cb3-8d79-408e-bedd-90ecab688aef'
+instru_key_insights = 'InstrumentationKey=f2faba01-466f-4aee-abe9-11257fc9ee58;IngestionEndpoint=https://eastus-8.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus.livediagnostics.monitor.azure.com/;ApplicationId=4bd79552-f7ff-437b-b746-c5b78f04d32e'
 
 # Set up logger for application insights
 config_integration.trace_integrations(['logging'])
@@ -63,8 +63,8 @@ button2 = os.environ.get('VOTE2VALUE', app.config['VOTE2VALUE'])
 title = os.environ.get('TITLE', app.config['TITLE'])
 
 # Redis Connection to a remote Redis server
-REDIS = os.getenv('REDIS', 'localhost')  # Lấy từ biến môi trường hoặc sử dụng 'localhost' nếu không có
-REDIS_PWD = os.getenv('REDIS_PWD', '')     # Get Redis server address from environment variable
+REDIS = os.getenv('REDIS', 'localhost')  
+REDIS_PWD = os.getenv('REDIS_PWD', '')  
 
 # Redis Connection to another container
 try:
@@ -134,6 +134,6 @@ def index():
 
 if __name__ == "__main__":
     # Start the Flask application
-        # app.run(debug=True)  # Use debug=True for local development
-    app.run(host='0.0.0.0', threaded=True)  # Uncomment for deployment
+    app.run(debug=True)  # Use debug=True for local development
+    # app.run(host='0.0.0.0', threaded=True)  # Uncomment for deployment
 

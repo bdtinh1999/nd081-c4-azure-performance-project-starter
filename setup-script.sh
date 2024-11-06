@@ -112,8 +112,10 @@ az network lb rule create \
   --backend-port 80 \
   --frontend-ip-name loadBalancerFrontEnd \
   --frontend-port 80 \
+  --floating-ip true \
   --protocol tcp \
   --verbose
+
 
 echo "Network load balancer rule created: $lbRule"
 
